@@ -1,28 +1,28 @@
-const prompt = require('prompt');
+const prompt = require('prompt'); //this dependency needs to be installed through npm
 
 const properties = [
     {
         name: 'firstInteger',
-        validator: /[\d]/,
-        warning: 'Input should only be an integer'
+        validator: /[\d]/, //regex to accept only integers
+        warning: 'Input should only be an integer' //error message if wrong input inserted
     },
     {
         name: 'secondInteger',
-        validator: /[\d]/,
+        validator: /[\d]/, //regex to accept only integers
         warning: 'Input should only be an integer'
     },
     {
         name: 'operator',
-        validator: /[+\-\*\/\%]/,
+        validator: /[+\-\*\/\%]/, //regex to accept either of the specified operators
         warning: 'Operator should be either of these: +,-,*,/,%'
     }
 ];
 
-prompt.start();
+prompt.start(); //main execution of the program starts
 
 prompt.get(properties, function (error, result) {
     if (error) {
-        return onError(error);
+        return onError(error); //program calls the onError function upon error
     }
     console.log("Commandline inputs received");
     console.log("First input: " + result.firstInteger);
@@ -46,5 +46,5 @@ prompt.get(properties, function (error, result) {
 
 function onError(error) {
     console.log(error);
-    return 1;
+    return 1; //program terminates with printing the error message
 }
